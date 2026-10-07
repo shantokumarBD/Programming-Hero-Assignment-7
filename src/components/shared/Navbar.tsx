@@ -1,11 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import CurrentDate from "./CurrentDate";
-import NavLinks from './NavLinks';
+import NavLinks from "./NavLinks";
 
 const Navbar = () => {
-
-
   return (
     <nav className="bg-white shadow-sm border-b border-bd-border">
       {/* Top Row: Logo & Auth */}
