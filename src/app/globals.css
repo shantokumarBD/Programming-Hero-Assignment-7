@@ -1,26 +1,24 @@
 @import "tailwindcss";
+@import "@heroui/styles"; 
+@plugin "daisyui";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  /* BD = Bazar Dor (Unique Prefix) */
+  --color-bd-text: #1D271F;
+  --color-bd-bg: #F0F5F0;
+  --color-bd-border: #E1E8E1;
+  --color-bd-card: #FAFCFA;
+  --color-bd-danger: #D03739;   
+  --color-bd-success: #1A9951;    
+  --color-bd-accent: #05839E;     
+  --color-bd-text-muted: #1d271fb3; 
+  --color-bd-light: #F3FBF4;      
+  --color-bd-primary: #047F39;    
+  --color-bd-primary-hover: #05893E;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bd-bg);
+  color: var(--color-bd-text);
 }
