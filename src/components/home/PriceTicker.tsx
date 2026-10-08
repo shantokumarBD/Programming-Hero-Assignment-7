@@ -47,7 +47,7 @@ const PriceTicker = async () => {
                     isUp ? "text-red-600" : "text-green-600"
                   }`}
                 >
-                  {isUp ? "▲" : "▼"} {toBnNum(product.change.pct)}%
+                  {isUp ? "▲" : "▼"} {toBnNum(Math.abs(product.change.pct))}%
                 </span>
               )}
             </div>

@@ -5,7 +5,7 @@ import NavLinks from "./NavLinks";
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-sm border-b border-bd-border">
+    <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
       {/* Top Row: Logo & Auth */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
         {/* Left: Logo & Date */}
