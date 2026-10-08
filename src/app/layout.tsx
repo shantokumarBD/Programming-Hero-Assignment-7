@@ -18,8 +18,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${hind_siliguri.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+    <html lang="en" className={`${hind_siliguri.className} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col" >
         <Navbar></Navbar>
         <main className="flex-grow">{children}</main>
       </body>

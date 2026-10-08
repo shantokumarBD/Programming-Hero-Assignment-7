@@ -41,7 +41,7 @@ const Navbar = () => {
       </div>
 
       {/* Bottom Row: Categories */}
-      <div className="bg-bd-card border-t border-bd-border">
+      <div className="bg-white border-t border-bd-border">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-3">
           <NavLinks />
         </div>

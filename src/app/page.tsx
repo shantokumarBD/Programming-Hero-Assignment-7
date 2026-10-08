@@ -1,8 +1,13 @@
-import React from 'react'
+import Hero from '@/components/home/Hero'
+import PriceTicker from '@/components/home/PriceTicker'
+
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <PriceTicker></PriceTicker>
+      <Hero></Hero>
+    </div>
   )
 }
 
