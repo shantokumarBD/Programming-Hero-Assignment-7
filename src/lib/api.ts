@@ -36,3 +36,20 @@ export const getAllProducts = async (): Promise<Product[]> => {
     return [];
   }
 };
+
+
+// product category 
+
+export const getProductsByCategory = async (slug: string): Promise<Product[]> => {
+  try {
+    const res = await fetch(`${BASE_URL}/products?category=${slug}`, {
+      next: { revalidate: 60 }
+    });
+    
+    if (!res.ok) return [];
+    return res.json();
+  } catch (error) {
+    console.error("Failed to fetch products by category:", error);
+    return [];
+  }
+};
