@@ -53,3 +53,22 @@ export const getProductsByCategory = async (slug: string): Promise<Product[]> =>
     return [];
   }
 };
+
+// single product
+
+export const getProductBySlug = async (slug: string): Promise<Product | null> => {
+  try {
+    const res = await fetch(`${BASE_URL}/products?slug=${slug}`, {
+      next: { revalidate: 60 }
+    });
+    
+    if (!res.ok) return null;
+    const products = await res.json();
+    
+
+    return products.length > 0 ? products[0] : null;
+  } catch (error) {
+    console.error("Failed to fetch product details:", error);
+    return null;
+  }
+};

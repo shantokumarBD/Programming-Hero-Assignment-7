@@ -7,12 +7,13 @@ export interface Category {
   icon: string;
 }
 
-// Product Type 
+// Product Type
 export interface MarketPrice {
   market: string;
   division: string;
   min: number;
   max: number;
+  avg: number;
 }
 
 export interface PriceChange {
@@ -35,4 +36,9 @@ export interface Product {
   lastMonth: number;
   change: PriceChange;
   markets: MarketPrice[];
+  summary: {
+    lowest: number;
+    highest: number;
+    average: number;
+  };
 }

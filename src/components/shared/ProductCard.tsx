@@ -1,5 +1,6 @@
 import { Product } from "@/types";
 import { getUnitBn, toBnNum } from "@/lib/utils";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: Product;
@@ -11,7 +12,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const isFlat = product.change.dir === "flat";
 
   return (
-    <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <Link href={`/product/${product.slug}`}>
+    <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-bd-success transition-shadow duration-300">
       
       <div className="flex items-center gap-4 mb-6">
         <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-2xl">
@@ -50,6 +52,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

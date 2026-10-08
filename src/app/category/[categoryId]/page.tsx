@@ -1,15 +1,19 @@
-import { getProductsByCategory, getCategories } from "@/lib/api";
+import { getProductsByCategory } from "@/lib/api";
 import ProductCard from "@/components/shared/ProductCard";
 import { toBnNum } from "@/lib/utils";
 import PriceTicker from "@/components/home/PriceTicker";
 
 export const instant = false;
 
+interface PageProps {
+  params: Promise<{ categoryId: string }>;
+}
 
-const CategoryPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+
+const CategoryPage = async ({ params }: PageProps) => {
  
-  const resolvedParams = await params;
-  const products = await getProductsByCategory(resolvedParams.slug);
+  const {categoryId} = await params;
+  const products = await getProductsByCategory(categoryId);
 
   if (!products || products.length === 0) {
     return (
