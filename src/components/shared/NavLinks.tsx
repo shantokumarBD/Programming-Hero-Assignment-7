@@ -1,4 +1,3 @@
-import Link from "next/link";
 import CategoryList from "./CategoryList";
 import { getCategories } from "@/lib/api";
 import { Suspense } from "react";

@@ -22,3 +22,9 @@ body {
   background-color: var(--color-bd-bg);
   color: var(--color-bd-text);
 }
+
+/* Hide browser default password reveal icon (Edge / Windows) */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}

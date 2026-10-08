@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import CurrentDate from "./CurrentDate";
 import NavLinks from "./NavLinks";
+import AuthButtons from "./AuthButtons";
 
 const Navbar = () => {
   return (
@@ -26,18 +27,7 @@ const Navbar = () => {
         </Link>
 
         {/* Right: Auth Buttons */}
-        <div className="flex items-center gap-2 md:gap-3">
-          <Link href="/signin">
-            <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold text-bd-text  rounded-lg cursor-pointer">
-              সাইন ইন
-            </button>
-          </Link>
-          <Link href="/signup">
-            <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold text-white bg-bd-primary rounded-lg shadow-md shadow-bd-primary/40 hover:bg-bd-primary-hover transition cursor-pointer">
-              সাইন আপ
-            </button>
-          </Link>
-        </div>
+        <AuthButtons></AuthButtons>
       </div>
 
       {/* Bottom Row: Categories */}
