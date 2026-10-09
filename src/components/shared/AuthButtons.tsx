@@ -45,6 +45,7 @@ export default function AuthButtons() {
               alt={session.user.name || "User Avatar"}
               width={36}
               height={36}
+              unoptimized
               className="w-9 h-9 rounded-xl object-cover border border-gray-200"
             />
           ) : (
