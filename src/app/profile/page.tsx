@@ -13,6 +13,8 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import UpdateProfilePage from "./update/page";
+import Link from "next/link";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -33,38 +35,6 @@ export default function ProfilePage() {
     });
   };
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data: Record<string, string> = {};
-
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-
-    if (!data.name || data.name.trim().length < 2) {
-      toast.error("দয়া করে আপনার নাম লিখুন");
-      return;
-    }
-
-    setUpdating(true);
-    try {
-      const { data: resData, error } = await updateUser({
-        name: data.name.trim(),
-      });
-
-      if (!error) {
-        toast.success("প্রোফাইল তথ্য সফলভাবে আপডেট হয়েছে!");
-        router.refresh();
-      } else {
-        toast.error(error.message || "আপডেট করতে সমস্যা হয়েছে");
-      }
-    } catch (err: any) {
-      toast.error(err?.message || "আপডেট করতে সমস্যা হয়েছে");
-    } finally {
-      setUpdating(false);
-    }
-  };
 
   if (isPending) {
     return (
@@ -163,44 +133,24 @@ export default function ProfilePage() {
           </button>
         </div>
 
-        {/* Update Form Card */}
-        <div className="bg-white rounded-3xl border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.02)] p-6 md:p-8 mt-6">
-          <h3 className="text-base md:text-lg font-bold text-gray-900 mb-5">
-            তথ্য
-          </h3>
-
-          <Form className="flex w-full flex-col gap-4" onSubmit={onSubmit}>
-            <TextField
-              isRequired
-              name="name"
-              defaultValue={session.user.name || ""}
-              className="flex flex-col gap-1.5"
-              validate={(value) => {
-                if (!value || value.trim().length < 2) {
-                  return "দয়া করে আপনার নাম লিখুন";
-                }
-                return null;
-              }}
-            >
-              <Label className="text-xs md:text-sm font-medium text-gray-700">
-                নাম
-              </Label>
-              <Input
-                placeholder="আপনার নাম লিখুন"
-                className="w-full h-11 px-3.5 rounded-xl border border-gray-200 bg-white hover:border-gray-300 focus:border-[#047F39] focus:outline-none transition-colors text-sm text-gray-800"
-              />
-              <FieldError className="text-xs text-red-600 font-medium" />
-            </TextField>
-
-            <Button
-              type="submit"
-              isDisabled={updating}
-              className="w-full h-11 mt-2 font-semibold text-white rounded-xl bg-[#047F39] hover:bg-[#05893E] shadow-sm transition-all duration-200 active:scale-[0.99] flex items-center justify-center cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {updating ? "আপডেট হচ্ছে..." : "আপডেট"}
-            </Button>
-          </Form>
+        {/* Update Link Card */}
+        <div className="bg-white rounded-3xl border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.02)] p-6 md:p-8 mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <h3 className="text-base md:text-lg font-bold text-gray-900">
+              আপনার তথ্য পরিবর্তন করতে চান?
+            </h3>
+            <p className="text-xs md:text-sm text-gray-500 mt-1">
+              নাম এবং ছবি আপডেট করতে নিচের বাটনে ক্লিক করুন।
+            </p>
+          </div>
+          <Link
+            href="/profile/update"
+            className="w-full md:w-auto px-6 py-3 font-semibold text-white rounded-xl bg-[#047F39] hover:bg-[#05893E] shadow-sm transition-all text-sm md:text-base text-center"
+          >
+            প্রোফাইল আপডেট করুন
+          </Link>
         </div>
+
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { getProductsByCategory } from "@/lib/api";
 import { toBnNum } from "@/lib/utils";
 import PriceTicker from "@/components/home/PriceTicker";
 import ProductListWithSort from "@/components/shared/ProductListWithSort";
+import Link from "next/link";
 
 export const instant = false;
 
@@ -15,11 +16,27 @@ const CategoryPage = async ({ params }: PageProps) => {
 
   if (!products || products.length === 0) {
     return (
-      <div className="bg-bd-bg min-h-screen pt-20 text-center">
-        <h2 className="text-2xl font-bold text-gray-700">এই ক্যাটাগরিতে কোনো পণ্য পাওয়া যায়নি!</h2>
+      <div className="bg-bd-bg min-h-screen flex flex-col items-center justify-center p-4 pb-20">
+        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100 text-center max-w-md w-full">
+          <div className="w-20 h-20 bg-emerald-50 text-bd-primary rounded-full flex items-center justify-center mx-auto mb-6 text-3xl shadow-sm border border-emerald-100">
+            🔍
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            এই ক্যাটাগরিতে কোনো পণ্য পাওয়া যায়নি!
+          </h2>
+          <p className="text-gray-500 text-sm mb-6">
+            আপনি যে ক্যাটাগরিটি খুঁজছেন তাতে বর্তমানে কোনো পণ্য তালিকাভুক্ত নেই অথবা লিংকটি ভুল।
+          </p>
+          <Link href="/">
+            <button className="w-full bg-bd-primary hover:bg-bd-primary-hover text-white font-semibold py-3 rounded-xl shadow-sm transition-colors cursor-pointer">
+              হোম পেজে ফিরে যান
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }
+
 
   const categoryName = products[0].categoryNameBn;
   const categoryIcon = products[0].categoryIcon;

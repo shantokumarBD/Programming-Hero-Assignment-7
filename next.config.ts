@@ -17,6 +17,20 @@ const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
   },
+  
+  async rewrites() {
+    return [
+      {
+        source: "/signin",
+        destination: "/sign-in",
+      },
+      {
+        source: "/signup",
+        destination: "/sign-up",
+      },
+    ];
+  },
+
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
