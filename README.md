@@ -3,7 +3,7 @@
 A modern, responsive web application built to provide real-time updates on daily market prices of essential commodities in Bangladesh. Stay informed about the prices of rice, pulses, oil, vegetables, fish, meat, and spices with detailed insights, average rates, and daily price fluctuation trends.
 
 ## 🚀 Live Demo
-**[Insert Your Vercel/Netlify Live Link Here]**
+**[https://bazardor-phi.vercel.app/](https://bazardor-phi.vercel.app/)**
 
 ## 📖 Short Description
 BazarDor is a comprehensive commodity price tracking platform. It allows users to quickly view today's market rates, filter items by category, and observe daily price changes (increases/decreases). With a secure authentication system, logged-in users can access detailed market-wise price breakdowns and manage their personalized profiles seamlessly.
